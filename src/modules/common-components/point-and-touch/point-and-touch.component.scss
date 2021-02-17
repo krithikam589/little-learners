@@ -1,0 +1,111 @@
+.pat_container{
+  position: relative;
+  display:inline-block;
+  padding: 15px;
+}
+
+.pat_image {
+  width: 270px;
+  height: 270px;
+  box-shadow: 10px 10px 5px lightgray;
+  z-index: 3;
+}
+
+.overlay {
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: .3s ease;
+  text-align: center;
+}
+
+.correct {
+  color: rgb(20, 238, 20);
+}
+
+.incorrect {
+  color: #f72e42;
+}
+
+.pat_header{
+  font-size: 20px;
+  background-color: lavender;
+  padding:10px;
+  border-radius: 5px;
+}
+
+.zoomio ::ng-deep svg {
+  animation: zoominout 1s infinite ;
+  color: rgb(190, 129, 49);
+}
+
+@keyframes zoominout {
+  0% {
+      transform: scale(1,1);
+  }
+  50% {
+      transform: scale(1.2,1.2);
+  }
+  100% {
+      transform: scale(1,1);
+  }
+}
+
+@-webkit-keyframes zoominout {
+  0% {
+      transform: scale(1,1);
+  }
+  50% {
+      transform: scale(1.2,1.2);
+  }
+  100% {
+      transform: scale(1,1);
+  }
+}
+
+.bounce ::ng-deep svg{
+	-webkit-animation: bounce 2s !important;
+	        animation: bounce 2s !important;
+	-webkit-animation-iteration-count: infinite !important;
+	        animation-iteration-count: infinite !important;
+}
+
+@-webkit-keyframes bounce {
+	0%,
+	25%,
+	50%,
+	75%,
+	100% {
+		-webkit-transform: translateY(0);
+		        transform: translateY(0);
+	}
+	40% {
+		-webkit-transform: translateY(-20px);
+		        transform: translateY(-20px);
+	}
+	60% {
+		-webkit-transform: translateY(-12px);
+		        transform: translateY(-12px);
+	}
+}
+
+@keyframes bounce {
+	0%,
+	25%,
+	50%,
+	75%,
+	100% {
+		-webkit-transform: translateY(0);
+		        transform: translateY(0);
+	}
+	40% {
+		-webkit-transform: translateY(-20px);
+		        transform: translateY(-20px);
+	}
+	60% {
+		-webkit-transform: translateY(-12px);
+		        transform: translateY(-12px);
+	}
+}

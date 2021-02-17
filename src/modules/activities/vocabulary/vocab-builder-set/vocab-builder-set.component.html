@@ -1,0 +1,25 @@
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Point and touch - NOUN
+      </mat-panel-title>
+      <mat-panel-description>
+        Finding the correct NOUN
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-point-and-touch [imageUrls]="imageUrlsNouns" (nextClick)="getRandomImages('nouns')"></app-point-and-touch>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Point and touch - VERB
+      </mat-panel-title>
+      <mat-panel-description>
+        Finding the correct VERB
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-point-and-touch [imageUrls]="imageUrlsVerbs" (nextClick)="getRandomImages('verbs')"></app-point-and-touch>
+  </mat-expansion-panel>
+</mat-accordion>

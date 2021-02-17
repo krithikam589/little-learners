@@ -1,0 +1,27 @@
+<div class="pat_header">
+Touch <fa-icon class="zoomio" [icon]="['fas', 'hand-point-up']"></fa-icon>&nbsp;&nbsp;<b>{{ primary }}</b>
+</div>
+<br/>
+<mat-divider></mat-divider>
+<br/>
+<div class="ll-align-center">
+  <div *ngFor="let imageUrl of imageUrls; let i = index;" class="pat_container">
+    <img src="{{ imageUrl }}" alt="Unable to display" class="pat_image" (click)="selectImage(i)" />
+    <span *ngIf="imageUrl.includes(primary)" class="overlay" [ngStyle]="{'display':selectedPictureIndex==i?'block':'none'}">
+      <i class="fa fa-check correct fa-3dicon"></i>
+    </span>
+    <span *ngIf="!imageUrl.includes(primary)" class="overlay" [ngStyle]="{'display':selectedPictureIndex==i?'block':'none'}">
+      <i class="fa fa-times incorrect fa-3dicon"></i>
+    </span>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+</div>
+<br/><br/>
+<mat-divider></mat-divider>
+<br/><br/>
+<div class="ll-align-center">
+<button mat-raised-button [disabled]="navigationDisabled" aria-label="Example icon button with a home icon" color="primary" (click)="getNext()">
+    Next <mat-icon>navigate_next</mat-icon>
+</button>
+</div>
+

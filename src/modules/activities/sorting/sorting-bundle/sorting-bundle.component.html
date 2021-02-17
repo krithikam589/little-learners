@@ -1,0 +1,14 @@
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Sort
+      </mat-panel-title>
+      <mat-panel-description>
+        Slide pictures into the correct box
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-sort-and-group></app-sort-and-group>
+  </mat-expansion-panel>
+</mat-accordion>
