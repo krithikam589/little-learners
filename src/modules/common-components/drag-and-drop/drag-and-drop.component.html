@@ -1,6 +1,6 @@
  <div class="ll-dnd-boundary" [style.width.px]="configData.boundaryWidth" [style.height.px]="configData.boundaryHeight">
 
-    <div *ngFor="let entry of dndData.imageData; let i = index;" class="ll-item-holder"
+    <div *ngFor="let entry of dndData; let i = index;" class="ll-item-holder"
        cdkDrag [cdkDragLockAxis]="configData.lockAxis"
       [style.width.px]="configData.itemHolderWidth" [style.height.px]="configData.itemHolderHeight">
       <img src="{{ entry.url }}" alt="Unknown" class="ll-item-responsive"/>
@@ -8,11 +8,11 @@
 
 </div>
 
-<!-- <div class="ll-dnd-boundary" cdkDropList [id]="configData.id" [cdkDropListData]="dndData.imageData"
+<!-- <div class="ll-dnd-boundary" cdkDropList [id]="configData.id" [cdkDropListData]="dndData"
   [cdkDropListConnectedTo]="configData.connectedTo" (cdkDropListDropped)="drop($event)" cdkDropListSortingDisabled
   [cdkDropListEnterPredicate]="isDropAllowed" [style.width.px]="configData.boundaryWidth"
   [style.height.px]="configData.boundaryHeight" cdkDropListSortingDisabled>
-  <div *ngFor="let entry of dndData.imageData; let i = index" class="ll-item-holder" cdkDrag [id]="i"
+  <div *ngFor="let entry of dndData; let i = index" class="ll-item-holder" cdkDrag [id]="i"
     [style.width.px]="configData.itemHolderWidth" [style.height.px]="configData.itemHolderHeight">
     <img src="{{ entry.url }}" alt="Unknown" class="ll-item-responsive" />
   </div>

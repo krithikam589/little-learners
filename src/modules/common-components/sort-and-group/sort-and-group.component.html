@@ -4,15 +4,23 @@
   <div>
     <mat-form-field appearance="fill">
       <mat-label>Type</mat-label>
-      <mat-select required formControlName="type">
+      <mat-select required formControlName="type" (selectionChange)="onTypeValueChange($event)">
         <mat-option *ngFor="let type of types" [value]="type.id">
           {{type.displayValue}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" [hidden]="makeMultiselect">
       <mat-label>Category</mat-label>
-      <mat-select required formControlName="category">
+      <mat-select required formControlName="categorySingleValue">
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{category.displayValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" [hidden]="!makeMultiselect">
+      <mat-label>Category</mat-label>
+      <mat-select required formControlName="categoryMultiValue" [multiple]="true">
         <mat-option *ngFor="let category of categories" [value]="category.id">
           {{category.displayValue}}
         </mat-option>

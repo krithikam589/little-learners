@@ -10,7 +10,12 @@ export class LlImageService {
   constructor(private httpClient: HttpClient) { }
 
   public getRandomImageUrls(count: number, category: string): Observable<any> {
-    return this.httpClient.get('https://ogvt62v7zd.execute-api.us-east-1.amazonaws.com/DEV/randomimageurls?count='
+    return this.httpClient.get('https://98i1hu1o6d.execute-api.us-east-1.amazonaws.com/DEV/randomimageurls?count='
                                     + count + '&category=' + category);
+  }
+
+  public getImageUrlsForSortActivity(count: number, category: string, subCategories: string, sortType: string): Observable<any> {
+    return this.httpClient.get('https://98i1hu1o6d.execute-api.us-east-1.amazonaws.com/DEV/getimagesforsort?count='
+                                    + count + '&category=' + category + '&subCategories=' + subCategories + '&sortType=' + sortType);
   }
 }

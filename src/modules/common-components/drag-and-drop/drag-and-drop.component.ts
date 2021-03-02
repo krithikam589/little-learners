@@ -23,7 +23,7 @@ export class DragAndDropComponent implements OnInit {
   @Input() configData: LLDNDConfig;
 
   constructor() {
-    this.dndData = {imageData: []};
+    //this.dndData = {imageData: []};
   }
 
   ngOnInit(): void {
@@ -41,7 +41,7 @@ export class DragAndDropComponent implements OnInit {
   }
 
   isDropAllowed(item: CdkDrag<any>, drop: CdkDropList): boolean{
-    if (item.dropContainer.data[item.element.nativeElement.id].category.includes(drop.id) ){
+    if (item.dropContainer.data[item.element.nativeElement.id].group.includes(drop.id) ){
       return true;
     }
     return false;

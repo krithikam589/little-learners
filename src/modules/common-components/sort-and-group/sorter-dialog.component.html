@@ -4,8 +4,11 @@
     <app-drag-and-drop [configData]="answerHolderConfig1"></app-drag-and-drop>
     <app-drag-and-drop [configData]="answerHolderConfig2"></app-drag-and-drop>
   </div>
+  <div class="ll-align-center">
+  <mat-spinner [hidden]="dataLoaded"></mat-spinner>
+  </div>
   <div class="ll-align-center" style="padding-top: 10px;">
-    <app-drag-and-drop [configData]="questionHolderConfig" [dndData]="data"></app-drag-and-drop>
+    <app-drag-and-drop [configData]="questionHolderConfig" [dndData]="imageData"></app-drag-and-drop>
   </div>
 </div>
 <div mat-dialog-actions>
