@@ -9,7 +9,9 @@
         Finding the correct NOUN
       </mat-panel-description>
     </mat-expansion-panel-header>
+
     <app-point-and-touch [imageUrls]="imageUrlsNouns" (nextClick)="getRandomImages('nouns')"></app-point-and-touch>
+    <mat-spinner [hidden]="dataLoaded"></mat-spinner>
   </mat-expansion-panel>
   <mat-expansion-panel>
     <mat-expansion-panel-header>
@@ -21,5 +23,6 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <app-point-and-touch [imageUrls]="imageUrlsVerbs" (nextClick)="getRandomImages('verbs')"></app-point-and-touch>
+    <mat-spinner [hidden]="dataLoaded"></mat-spinner>
   </mat-expansion-panel>
 </mat-accordion>

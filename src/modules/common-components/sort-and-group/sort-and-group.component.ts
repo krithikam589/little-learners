@@ -2,8 +2,6 @@ import { LlImageService } from './../../services/ll-image.service';
 import { Component, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { stringify } from 'querystring';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 interface SortType {
   id: string;
@@ -28,7 +26,7 @@ export class SortAndGroupComponent {
 
   sorterCriteriaForm = new FormGroup({
     type: new FormControl('', Validators.required),
-    categorySingleValue: new FormControl('', Validators.required),
+    categorySingleValue: new FormControl({value: '', disabled: true}, Validators.required),
     categoryMultiValue: new FormControl({value: '', disabled: true}, Validators.required),
   });
 
@@ -52,13 +50,13 @@ export class SortAndGroupComponent {
                                 { id: 'food', displayValue: 'Food'}];
 
   navigationDisabled = true;
-  makeMultiselect = false;
+  enableMultiselect = false;
 
   constructor(public dialog: MatDialog, private imageService: LlImageService) {}
 
   openDialog(): void {
     const sortType = this.sorterCriteriaForm.get('type').value;
-    const subCategories = this.makeMultiselect === true ?
+    const subCategories = this.enableMultiselect === true ?
                                 this.sorterCriteriaForm.get('categoryMultiValue').value :
                                 this.sorterCriteriaForm.get('categorySingleValue').value;
     const dialogRef = this.dialog.open(SorterDialogComponent, {
@@ -111,13 +109,13 @@ export class SortAndGroupComponent {
 
   onTypeValueChange(ob: any): void{
     if  ( ob.value === 'non-identical' || ob.value === 'category'){
-        this.makeMultiselect = true;
-        this.sorterCriteriaForm.get('categorySingleValue').disable();
+        this.enableMultiselect = true;
+        //this.sorterCriteriaForm.get('categorySingleValue').disable();
         this.sorterCriteriaForm.get('categoryMultiValue').enable();
     }else{
-      this.makeMultiselect = false;
-      this.sorterCriteriaForm.get('categorySingleValue').enable();
-      this.sorterCriteriaForm.get('categoryMultiValue').disable();
+        this.enableMultiselect = false;
+        //this.sorterCriteriaForm.get('categorySingleValue').enable();
+        this.sorterCriteriaForm.get('categoryMultiValue').disable();
     }
   }
 
@@ -148,7 +146,7 @@ export class SorterDialogComponent {
     public dialogRef: MatDialogRef<SorterDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-  onNoClick(): void {
+  public closeDialog(): void {
     this.dialogRef.close();
   }
 

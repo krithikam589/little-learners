@@ -12,6 +12,7 @@ export class VocabBuilderSetComponent implements OnInit {
   count = 2;
   imageUrlsVerbs: string[];
   imageUrlsNouns: string[];
+  dataLoaded = false;
 
   constructor(private imageService: LlImageService) { }
 
@@ -28,6 +29,7 @@ export class VocabBuilderSetComponent implements OnInit {
       } else if ( category.includes('verbs') ){
         this.imageUrlsVerbs = response.imageUrls;
       }
+      this.dataLoaded = true;
     }, err => console.log('HTTP Error', err));
   }
 

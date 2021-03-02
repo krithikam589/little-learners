@@ -22,9 +22,7 @@ export class DragAndDropComponent implements OnInit {
   @Input() dndData: any;
   @Input() configData: LLDNDConfig;
 
-  constructor() {
-    //this.dndData = {imageData: []};
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }

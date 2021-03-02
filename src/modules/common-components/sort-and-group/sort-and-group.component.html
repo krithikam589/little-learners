@@ -10,7 +10,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill" [hidden]="makeMultiselect">
+    <mat-form-field appearance="fill" [hidden]="true">
       <mat-label>Category</mat-label>
       <mat-select required formControlName="categorySingleValue">
         <mat-option *ngFor="let category of categories" [value]="category.id">
@@ -18,7 +18,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill" [hidden]="!makeMultiselect">
+    <mat-form-field appearance="fill" [hidden]="!enableMultiselect">
       <mat-label>Category</mat-label>
       <mat-select required formControlName="categoryMultiValue" [multiple]="true">
         <mat-option *ngFor="let category of categories" [value]="category.id">
