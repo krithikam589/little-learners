@@ -37,17 +37,17 @@ export class SortAndGroupComponent {
                        {  id: 'category', displayValue: 'Category' }];
 
   categories: SortCategory[] = [{ id: 'shapes', displayValue: 'Shapes'},
+                                { id: 'fruits', displayValue: 'Fruits'},
+                                { id: 'vegetables', displayValue: 'Vegetables'}/*,
                                 { id: 'colors', displayValue: 'Colors'},
-                                { id: 'vegetables', displayValue: 'Vegetables'},
                                 { id: 'alphabets', displayValue: 'Alphabets'},
                                 { id: 'numbers', displayValue: 'Numbers'},
-                                { id: 'fruits', displayValue: 'Fruits'},
                                 { id: 'animals', displayValue: 'Animals'},
                                 { id: 'vehicles', displayValue: 'Vehicles'},
                                 { id: 'utensils', displayValue: 'Utensils'},
                                 { id: 'birds', displayValue: 'Birds'},
                                 { id: 'insects', displayValue: 'Insects'},
-                                { id: 'food', displayValue: 'Food'}];
+                                { id: 'food', displayValue: 'Food'}*/];
 
   navigationDisabled = true;
   enableMultiselect = false;

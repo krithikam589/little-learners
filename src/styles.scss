@@ -9,6 +9,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   align-items:center;
 }
 
+.ll-error{
+  background-image: url('./assets/images/background-ll-error.jpg');
+  background-size: cover;
+}
 .fa-3dicon{
     /*transform-style*/
     -webkit-transform-style: preserve-3d;
