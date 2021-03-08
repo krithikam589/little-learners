@@ -30,6 +30,9 @@ export class SortAndGroupComponent {
     categoryMultiValue: new FormControl({value: '', disabled: true}, Validators.required),
   });
 
+  selectedCategories: string[];
+  disableUnselectedOptions = false;
+
   MAX_IMAGES_TO_SORT = 10;
 
   types: SortType[] = [{  id: 'identical', displayValue: 'Identical'  },
@@ -116,6 +119,20 @@ export class SortAndGroupComponent {
         this.enableMultiselect = false;
         //this.sorterCriteriaForm.get('categorySingleValue').enable();
         this.sorterCriteriaForm.get('categoryMultiValue').disable();
+    }
+  }
+
+  limitSelection(){
+    if (this.sorterCriteriaForm.get('categoryMultiValue').value.length < 3) {
+      this.selectedCategories = this.sorterCriteriaForm.get('categoryMultiValue').value;
+      if(this.sorterCriteriaForm.get('categoryMultiValue').value.length === 2){
+        this.disableUnselectedOptions = true;
+      }else{
+        this.disableUnselectedOptions = false;
+      }
+    } else {
+      this.sorterCriteriaForm.setValue(this.selectedCategories);
+      this.disableUnselectedOptions = true;
     }
   }
 
